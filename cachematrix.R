@@ -8,8 +8,8 @@ makeInverse <- function(x = matrix()) {
         setinverse <- function(solve) inv <<- solve
         getinverse <- function() inv
         list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
+             setmean = setinverse,
+             getmean = getinverse)
 }
 cacheinverse <- function(x)
 {
