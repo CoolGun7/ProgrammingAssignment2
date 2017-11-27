@@ -3,9 +3,9 @@ the inverse of a matrix rather than compute it repeatedly (there are also altern
 matrix inversion that we will not discuss here). Your assignment is to write a pair of functions
 that cache the inverse of a matrix.
 
-makeInverse: This function creates a matrix object that can cache its inverse
+makeCacheMatrix: This function creates a matrix object that can cache its inverse
 
-makeInverse <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
         set <- function(y) {
                 x <<- y
@@ -19,10 +19,10 @@ makeInverse <- function(x = matrix()) {
              getinverse = getinverse)
 }
 
-cacheinverse: This function calculates the inverse of the special matrix returned by above function makeInverse
+cacheSolve: This function calculates the inverse of the special matrix returned by above function makeInverse
 The inverse if is already calculated then the cacheinverse fetches and returns the inverse from cache
 
-cacheinverse <- function(x)
+cacheSolve <- function(x)
 {
         inv <- x$getinverse()
         if(!is.null(inv)) {
@@ -36,6 +36,6 @@ cacheinverse <- function(x)
 }
 TEST:
 klm<-matrix(c(2,-5,8,3,0,9,1,5,4),3,3)
-klminv<-makeInverse(klm)
-cacheinverse(klminv)
-cacheinverse(klminv)
+klminv<-makeCacheMatrix(klm)
+cacheSolve(klminv)
+cacheSolve(klminv)
